@@ -40,7 +40,10 @@ public class LFrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch(com) {
-		case(""):
+		case("/list.do"):
+			command = new BListCommand();
+			command.execute(request, response);
+			viewPage = "list.jsp";
 			break;
 		}
 		
