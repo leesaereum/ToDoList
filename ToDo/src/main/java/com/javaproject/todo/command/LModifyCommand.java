@@ -3,7 +3,7 @@ package com.javaproject.todo.command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class TLoginCommand implements TCommand {
+public class LModifyCommand implements LCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
