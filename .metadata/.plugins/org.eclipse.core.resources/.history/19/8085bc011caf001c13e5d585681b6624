@@ -1,0 +1,72 @@
+package com.javaproject.todo.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class LDao {
+	DataSource dataSource;
+
+	public LDao() {
+		try {
+			Context context = new InitialContext();
+			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/todo");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void signUp() {
+		
+	}
+	public void signIn() {
+		
+	}
+public void create(String content, String finishiDate, String isImportant) {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "insert into todo (user_uId, lContent, lFinishDate, lisImportant, lisDone, insertDate) values (?, ?, ?, ?, ?, now())";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, );
+			preparedStatement.setString(2, content);
+			preparedStatement.setString(3, finishDate);
+			preparedStatement.setString(4, aName);
+			preparedStatement.setString(5, aAddress);
+			
+			preparedStatement.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				if(preparedStatement != null) preparedStatement.close();
+				if(connection != null) connection.close();
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		
+	} //write end
+	public void modify() {
+		
+	}
+	public void delete() {
+		
+	}
+	public void list() {
+		
+	}
+	public void signOut() {
+		
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;MVCBoard2&apos;&#x0A;- Original project: &apos;MVCBoard2&apos;&#x0A;- Original element: &apos;MVCBoard2/src/main/java/javax.servlet.http&apos;" description="Delete element" element1="/src\/main\/java&lt;javax.servlet.http" element2="/src\/main\/java&lt;javax.servlet" element3="/src\/main\/java&lt;javax" elements="3" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1648517288693" subPackages="false" version="1.0"/>
+</session>

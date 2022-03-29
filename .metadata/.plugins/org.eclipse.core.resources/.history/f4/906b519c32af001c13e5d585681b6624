@@ -1,0 +1,36 @@
+package com.javaproject.todo.command;
+
+import java.sql.Timestamp;
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.javaproject.todo.dao.LDao;
+
+public class LCreateCommand implements LCommand {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		String isimportant;
+		
+		String user_uId = session.getAttribute("UID");
+		String content = request.getParameter("content");
+		Timestamp finishDate = request.getParameter("finishDate");
+		
+		if (request.getParameter("isImportant") == "") {
+			isimportant = "0";
+		}else {
+			isImportant = request.getParameter("isImportant");
+		}
+		
+		
+	
+		
+		LDao dao = new LDao();
+		
+		dao.create(user_uId, content, finishDate, isImportant);
+	}
+
+}

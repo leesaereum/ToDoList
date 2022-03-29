@@ -1,0 +1,25 @@
+package com.javaproject.todo.command;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.javaproject.todo.dao.LDao;
+
+public class LCreateCommand implements LCommand {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+		ServletRequest session;
+		String user_uId = session.getAttribute("user_uId");
+		String content = request.getParameter("content");
+		String finishDate = request.getParameter("finishDate");
+		String isImportant = request.getParameter("isImportant");
+		LDao dao = new LDao();
+		
+		dao.create(user_uId, content, finishDate, isImportant);
+	}
+
+}

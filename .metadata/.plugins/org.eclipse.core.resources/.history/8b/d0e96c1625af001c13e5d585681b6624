@@ -1,0 +1,38 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ToDoList작성</title>
+</head>
+<body>
+
+<h2>ToDoList</h2>
+<table border="0">
+	<form action="create_list.do" method="get">
+		<tr>
+			<td>내용</td>
+			<td><input type="text" name="content" size="50"></td>
+		</tr>
+		<tr>
+			<td>마감일</td>
+			<td><input type="date" name="finishDate" ></td>
+		</tr>
+		<tr>
+			<td>중요</td>
+			<td><input type="checkbox" name="isImportant" value = "1" size="20"></td>
+		</tr>
+
+			<td colspan="2"><input type="submit" value="확인">
+		</tr>
+		
+		
+
+    
+	</form>
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ToDo">
+        <property name="context-root" value="ToDo"/>
+        <property name="java-output-path" value="/ToDo/build/classes"/>
+    </wb-module>
+</project-modules>
