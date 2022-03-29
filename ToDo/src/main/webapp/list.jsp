@@ -73,7 +73,7 @@
 	</div>
 	<!--search area-->
 	<div class="bottomline">
-		<form action="list.do" method="post">
+		<form action="list.do">
 		<select name = "query">
 		<option value = "lContent" selected="selected">내용</option>
 		<option value = "lCreatedate">생성일</option>
