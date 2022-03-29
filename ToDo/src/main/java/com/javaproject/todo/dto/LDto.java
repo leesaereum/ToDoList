@@ -4,31 +4,27 @@ import java.sql.Timestamp;
 
 public class LDto {
 	String uId;
-	String uPw;
-	String uName;
 	int lCode;
 	String lContent;
 	Timestamp lCreatedate;
 	Timestamp lFinishdate;
-	boolean lisdone;
-	boolean lisimportant;
+	boolean lIsdone;
+	boolean lIsimportant;
 	
 	public LDto(){
 		
 	}
 
-	public LDto(String uId, String uPw, String uName, int lCode, String lContent, Timestamp lCreatedate,
-			Timestamp lFinishdate, boolean lisdone, boolean lisimportant) {
+	public LDto(String uId, int lCode, String lContent, Timestamp lCreatedate,
+			Timestamp lFinishdate, boolean lIsdone, boolean lIsimportant) {
 		super();
 		this.uId = uId;
-		this.uPw = uPw;
-		this.uName = uName;
 		this.lCode = lCode;
 		this.lContent = lContent;
 		this.lCreatedate = lCreatedate;
 		this.lFinishdate = lFinishdate;
-		this.lisdone = lisdone;
-		this.lisimportant = lisimportant;
+		this.lIsdone = lIsdone;
+		this.lIsimportant = lIsimportant;
 	}
 
 	/**
@@ -43,34 +39,6 @@ public class LDto {
 	 */
 	public void setuId(String uId) {
 		this.uId = uId;
-	}
-
-	/**
-	 * @return the uPw
-	 */
-	public String getuPw() {
-		return uPw;
-	}
-
-	/**
-	 * @param uPw the uPw to set
-	 */
-	public void setuPw(String uPw) {
-		this.uPw = uPw;
-	}
-
-	/**
-	 * @return the uName
-	 */
-	public String getuName() {
-		return uName;
-	}
-
-	/**
-	 * @param uName the uName to set
-	 */
-	public void setuName(String uName) {
-		this.uName = uName;
 	}
 
 	/**
@@ -130,31 +98,31 @@ public class LDto {
 	}
 
 	/**
-	 * @return the lisdone
+	 * @return the lIsdone
 	 */
-	public boolean isLisdone() {
-		return lisdone;
+	public boolean islIsdone() {
+		return lIsdone;
 	}
 
 	/**
-	 * @param lisdone the lisdone to set
+	 * @param lIsdone the lIsdone to set
 	 */
-	public void setLisdone(boolean lisdone) {
-		this.lisdone = lisdone;
+	public void setlIsdone(boolean lIsdone) {
+		this.lIsdone = lIsdone;
 	}
 
 	/**
-	 * @return the lisimportant
+	 * @return the lIsimportant
 	 */
-	public boolean isLisimportant() {
-		return lisimportant;
+	public boolean islIsimportant() {
+		return lIsimportant;
 	}
 
 	/**
-	 * @param lisimportant the lisimportant to set
+	 * @param lIsimportant the lIsimportant to set
 	 */
-	public void setLisimportant(boolean lisimportant) {
-		this.lisimportant = lisimportant;
+	public void setlIsimportant(boolean lIsimportant) {
+		this.lIsimportant = lIsimportant;
 	}
 	
 	
