@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javaproject.todo.command.LCommand;
+import com.javaproject.todo.command.LSignInCommand;
 
 @WebServlet("*.do")
 public class LFrontController extends HttpServlet {
@@ -40,9 +41,17 @@ public class LFrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch(com) {
-		case(""):
+		case("/signIn.do"):
+			command = new LSignInCommand();
+			command.execute(request, response);
+			viewPage = "signInCheck.jsp";
+			
 			break;
+		
 		}
+		
+	
+	
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

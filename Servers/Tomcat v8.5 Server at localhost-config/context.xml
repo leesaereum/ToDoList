@@ -25,4 +25,16 @@
     <!--
     <Manager pathname="" />
     -->
+    <Resource
+    	name = "jdbc/todo"
+    	auth = "Container"
+    	type = "javax.sql.DataSource"
+    	maxTotal = "8" 
+    	maxIdle = "30"
+    	maxWaitMillis = "-1"
+    	username = "root"
+    	password = "00000000"
+    	dirverClassName = "com.mysql.cj.jdbc.Driver"
+    	url = "jdbc:mysql://localhost:3306/todo?serverTimezone=Asia/Seoul&amp;characterEncoding=utf8&amp;useSSL=false"
+/>
 </Context>
