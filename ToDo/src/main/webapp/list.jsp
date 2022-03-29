@@ -32,27 +32,33 @@
 	}
 	
 </style>
+<script type="text/javascript">
+	function NewtoDo() {
+		location.href = "create.jsp";
+	}
+</script>
 <body>
+	<div>
 	<h1 align="center">To do List</h1>
+	<input type="button" value="New" onclick="NewtoDo()">
 	<hr class="first">
+	</div>
 	<!--list area -->
 	<table border="0">
 		<tr>
 			<th width="30%" align="center">내용</th>
-			<th width="30%" align="center">목표일</th>
-			<th width="25%" align="center">수행여부</th>
-			<th width="15%" align="center">중요도</th>
+			<th width="20%" align="center">목표일</th>
+			<th width="20%" align="center">수행여부</th>
+			<th width="20%" align="center">즐겨찾기</th>
 		</tr>
 	</table>
 	<hr class="second">
 	<c:forEach items="${list }" var="dto01">
-		<td><a href=".do?lCode=${dto01.lCode }">${dto01.lCode }</a></td>
-		<td>${dto01.lContent }</td>
+		<td><a href="content_view.do?lCode=${dto01.lCode }">${dto01.lContent }</td>
 		<td>${dto01.lCreatedate }</td>
 		<td>${dto01.lFinishdate }</td>
-		<td>${dto01.lIsdone }</td>
-		<td>${dto01.lIsimportant }</td>
-		<td>${dto01.user_uId }</td>
+		<td><input type="checkbox" name="lIsimportant">${dto01.lIsdone }</td>
+		<td><input type="checkbox" name="lIsdone">${dto01.lIsimportant }</td>
 	</c:forEach>
 	<!--search area-->
 	<div class="bottomline">
@@ -62,7 +68,7 @@
 		<option value = "lCreatedate">생성일</option>
 		<option value = "lFinishdate">목표일</option>
 		<option value = "lIsdone">수행여부</option>
-		<option value = "lIsimportant">중요도</option>
+		<option value = "lIsimportant">즐겨찾기</option>
 	</select>
 	<input type="text" name="lContent" size="50">
 	<input type="submit" value="검색">
