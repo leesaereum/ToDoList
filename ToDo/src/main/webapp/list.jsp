@@ -34,6 +34,10 @@
 		justify-content:center;
 	}
 	
+	.listcontent{
+		width: 100%;
+	}
+	
 </style>
 <script type="text/javascript">
 	function NewtoDo() {
@@ -41,11 +45,9 @@
 	}
 </script>
 <body>
-	<div>
 	<h1 align="center">To do List</h1>
 	<input type="button" value="New" onclick="NewtoDo()">
 	<hr class="first">
-	</div>
 	<!--list area -->
 	
 	<table border="0">
@@ -58,15 +60,17 @@
 	</table>
 	
 	<hr class="second">
+	<div class="listcontent" style="overflow-x:hidden;">
 	<c:forEach items="${list }" var="dto01">
-		<td>&emsp;</td>
-		<td width="30%"><a href="content_view.do?lCode=${dto01.lCode }">${dto01.lContent }</a></td>
+	<table border="0">
+		<td width="30%" align="center"><a href="content_view.do?lCode=${dto01.lCode }">${dto01.lContent }</a></td>
 		<!--<td width="20%">${dto01.lCreatedate }</td>-->
-		<td width="20%">${dto01.lFinishdate }</td>
-		<td width="20%"><input type="checkbox" name="lIsimportant"></td>
-		<td width="20%"><input type="checkbox" name="lIsdone"></td>
+		<td width="20%" align="center">${dto01.lFinishdate }</td>
+		<td width="20%" align="center"><input type="checkbox" name="lIsimportant"></td>
+		<td width="20%" align="center"><input type="checkbox" name="lIsdone"></td>
+		</table>
 	</c:forEach>
-	
+	</div>
 	<!--search area-->
 	<div class="bottomline">
 		<form action="list.do" method="post">
