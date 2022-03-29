@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.javalec.bbs.command.BWriteCommand;
 import com.javaproject.todo.command.LCommand;
+import com.javaproject.todo.command.LCreateCommand;
 
 @WebServlet("*.do")
 public class LFrontController extends HttpServlet {
@@ -40,8 +42,14 @@ public class LFrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch(com) {
-		case(""):
+		case("/create.do"):
+			viewPage = "create.jsp";
 			break;
+		case("/create_list.do"):
+			command = new LCreateCommand();
+			command.execute(request, response);
+			viewPage = "list.do"; 
+		
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
