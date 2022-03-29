@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.javaproject.todo.command.LCommand;
+import com.javaproject.todo.command.LListCommand;
 
 @WebServlet("*.do")
 public class LFrontController extends HttpServlet {
@@ -41,7 +42,7 @@ public class LFrontController extends HttpServlet {
 		
 		switch(com) {
 		case("/list.do"):
-			command = new BListCommand();
+			command = new LListCommand();
 			command.execute(request, response);
 			viewPage = "list.jsp";
 			break;

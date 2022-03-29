@@ -1,13 +1,24 @@
 package com.javaproject.todo.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class TDao {
+import com.javaproject.todo.dto.LDto01;
+
+public class LDao01 {
+
 	DataSource dataSource;
 
-	public TDao() {
+	
+	public LDao01() {
+		// TODO Auto-generated constructor stub
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:comp/env/jdbc/todo");
@@ -31,36 +42,37 @@ public class TDao {
 	public void delete() {
 		
 	}
-	public void list() {
+	public ArrayList<LDto01> list() {
 		//list
-		public ArrayList<BDto> list(){
-			ArrayList<BDto> dtos = new ArrayList<BDto>();
+		
+			ArrayList<LDto01> dtos = new ArrayList<LDto01>();
 			Connection connection = null;
 			PreparedStatement preparedStatement = null;
 			ResultSet resultSet = null;
 			
 			try {
 				connection = dataSource.getConnection();
-				String query = "select bId, bName, bTitle, bContent, bDate from mvc_board";
+				String query = "select lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant, user_uId from list";
 				preparedStatement = connection.prepareStatement(query);
 				resultSet = preparedStatement.executeQuery();
 				
 				while(resultSet.next()) {
-					int bId = resultSet.getInt("bId"); //1234로 써도 되고, Column 이름으로 써도 됨!
-					String bName = resultSet.getString("bName");
-					String bTitle = resultSet.getString("bTitle");
-					String bContent = resultSet.getString("bContent");
-					Timestamp bDate = resultSet.getTimestamp("bDate");
+					int lCode = resultSet.getInt("lCode"); 
+					String lContent = resultSet.getString("lContent"); 
+					Timestamp lCreatedate = resultSet.getTimestamp("lCreatedate"); 
+					Timestamp lFinishdate = resultSet.getTimestamp("lFinishdate"); 
+					Boolean lIsdone = resultSet.getBoolean("lIsdone"); 
+					Boolean lIsimportant = resultSet.getBoolean("lIsimportant"); 
+					String user_uId = resultSet.getString("user_uId"); 
 					
-					BDto dto = new BDto(bId, bName, bTitle, bContent, bDate);
+					LDto01 dto01 = new LDto01();
 					
-					dtos.add(dto);
+					dtos.add(dto01);
 				}
 				
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
-				//이상이 있건 없건 메모리 정리	
 				try {
 					if(resultSet != null) resultSet.close();
 					if(preparedStatement != null) preparedStatement.close();
@@ -71,9 +83,8 @@ public class TDao {
 			}
 			return dtos;
 		} //list end
-	}
+	
 	public void signOut() {
 		
 	}
 }
-
