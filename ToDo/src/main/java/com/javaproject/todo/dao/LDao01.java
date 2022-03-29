@@ -52,7 +52,7 @@ public class LDao01 {
 			
 			try {
 				connection = dataSource.getConnection();
-				String query = "select lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant, user_uId from list";
+				String query = "select lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant from list";
 				preparedStatement = connection.prepareStatement(query);
 				resultSet = preparedStatement.executeQuery();
 				
@@ -63,9 +63,9 @@ public class LDao01 {
 					Timestamp lFinishdate = resultSet.getTimestamp("lFinishdate"); 
 					Boolean lIsdone = resultSet.getBoolean("lIsdone"); 
 					Boolean lIsimportant = resultSet.getBoolean("lIsimportant"); 
-					String user_uId = resultSet.getString("user_uId"); 
+					//String user_uId = resultSet.getString("user_uId"); 
 					
-					LDto01 dto01 = new LDto01();
+					LDto01 dto01 = new LDto01(lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant, lContent);
 					
 					dtos.add(dto01);
 				}

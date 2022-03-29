@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>To do List/${LDto.uId }</title>
+<title>To do List/${dto.uId }</title>
 </head>
 <style>
 	body, table, tr{
@@ -44,6 +47,7 @@
 	<hr class="first">
 	</div>
 	<!--list area -->
+	
 	<table border="0">
 		<tr>
 			<th width="30%" align="center">내용</th>
@@ -52,14 +56,17 @@
 			<th width="20%" align="center">즐겨찾기</th>
 		</tr>
 	</table>
+	
 	<hr class="second">
 	<c:forEach items="${list }" var="dto01">
-		<td><a href="content_view.do?lCode=${dto01.lCode }">${dto01.lContent }</td>
-		<td>${dto01.lCreatedate }</td>
-		<td>${dto01.lFinishdate }</td>
-		<td><input type="checkbox" name="lIsimportant">${dto01.lIsdone }</td>
-		<td><input type="checkbox" name="lIsdone">${dto01.lIsimportant }</td>
+		<td>&emsp;</td>
+		<td width="30%"><a href="content_view.do?lCode=${dto01.lCode }">${dto01.lContent }</a></td>
+		<!--<td width="20%">${dto01.lCreatedate }</td>-->
+		<td width="20%">${dto01.lFinishdate }</td>
+		<td width="20%"><input type="checkbox" name="lIsimportant"></td>
+		<td width="20%"><input type="checkbox" name="lIsdone"></td>
 	</c:forEach>
+	
 	<!--search area-->
 	<div class="bottomline">
 		<form action="list.do" method="post">
