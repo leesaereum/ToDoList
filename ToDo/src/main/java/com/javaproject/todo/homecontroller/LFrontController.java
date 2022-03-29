@@ -44,18 +44,12 @@ public class LFrontController extends HttpServlet {
 		case("/signIn.do"):
 			command = new LSignInCommand();
 			command.execute(request, response);
-			
-			if(request.getAttribute("uId") == null) {
-				viewPage = "signIn.jsp?error=error";
-			}else {
-				viewPage = "list.do";
-			}
+			viewPage = (String) request.getAttribute("viewPage");
 			
 			break;
 			
 		case("/list.do"):
-			System.out.println("list");
-			viewPage = "signIn.jsp";
+			viewPage = "list.jsp";
 		}
 		
 	

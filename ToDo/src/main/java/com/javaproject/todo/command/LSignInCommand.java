@@ -21,7 +21,12 @@ public class LSignInCommand implements LCommand {
 			session.setAttribute("UID", uId);
 		}
 		System.out.println(uId);
-		request.setAttribute("uId", uId);
+		
+		if(uId == null) {
+			request.setAttribute("viewPage", "signIn.jsp?error=error");
+		}else {
+			request.setAttribute("viewPage", "list.do");
+		}
 		
 
 	}
