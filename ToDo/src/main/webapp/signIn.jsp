@@ -117,8 +117,9 @@ body{
 <script type="text/javascript">
 	let emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 	window.onload = function(){
-		let errorCode = "<%= request.getAttribute("ERR") %>";
-		if(errorCode === "uIdNull"){
+		let errorCode = "<%= request.getParameter("error") %>"
+		console.log(errorCode)
+		if(errorCode !== "null"){
 			toast("로그인 정보를 확인해주세요")
 		}
 		if(localStorage.getItem("id")){
