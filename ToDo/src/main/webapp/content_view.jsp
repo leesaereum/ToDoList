@@ -91,12 +91,12 @@ body {
 					<input type="text" name="lContent" value="${content.lContent}" size ="35">
 				</div>
 				<div class="signIn_liner">
-					실행 완료 여부 : <input type="radio" name="lisdone" value="0" checked="checked"> 진행중 
-									<input type="radio" name="lisdone" value="1"> 완료
+					실행 완료 여부 : <input type="radio" name="lisdone" value="진행중" checked="checked"> 진행중 
+									<input type="radio" name="lisdone" value="완료"> 완료
 				</div>
 				<div class="signIn_liner">
-					즐겨찾기 : <input type="radio" name="lisimportant" value="1" checked="checked"> 추가 
-							<input type="radio" name="lisimportant" value="0"> 안함
+					중요도 여부 : <input type="radio" name="lisimportant" value="중요" checked="checked"> 중요 
+							<input type="radio" name="lisimportant" value=""> 중요하지않음
 				</div>
 				<div class="signIn_liner">
 					<input type="submit" value="수정하기">

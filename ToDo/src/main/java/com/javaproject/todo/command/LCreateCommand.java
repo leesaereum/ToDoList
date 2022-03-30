@@ -16,27 +16,18 @@ public class LCreateCommand implements LCommand {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-//		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		HttpSession session = request.getSession();
 		
 		
 		Object user_uId = session.getAttribute("UID");
 		String content = request.getParameter("content");
 		String isImportant =  request.getParameter("isImportant");
+		String isDone = request.getParameter("isDone");
 		
-//		Timestamp finishdate = null;
-//		try {
-//			finishdate = (Timestamp) df.parse(request.getParameter("finishDate"));
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-//		LDao dao = new LDao();
 		LDao dao = new LDao();
 		
-		dao.create(user_uId, content, isImportant);
-	}
+		dao.create(user_uId, content, isImportant, isDone);
 
+}
 }
 

@@ -78,10 +78,12 @@ body{
 		해야할일 <input type="text" name="content" size="30">
 			</div>
 		<div class="signIn_liner">
-		중요! <input type="checkbox" name="isImportant" value = "1">
+		진행여부 - <input type="radio" name="isDone" value = "진행중" checked/>진행중
+		 <input type="radio" name="isDone" value = "완료" />완료 <br>
+		 중  요  도  - <input type="radio" name="isImportant" value = "중요" checked/>중요
+		 <input type="radio" name="isImportant" value = "중요하지않음" />중요하지않음
 		</div>
-			마감일
-			<input type="date" name="finishDate">
+
 	
 			<input type="submit" value="확인">
 		</form>

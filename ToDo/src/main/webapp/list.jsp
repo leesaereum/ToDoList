@@ -53,9 +53,8 @@
 	<table border="0">
 		<tr>
 			<th width="30%" align="center">내용</th>
-			<th width="20%" align="center">목표일</th>
-			<th width="20%" align="center">수행여부</th>
-			<th width="20%" align="center">즐겨찾기</th>
+			<th width="30%" align="center">수행여부</th>
+			<th width="30%" align="center">중요도</th>
 		</tr>
 	</table>
 	
@@ -64,10 +63,8 @@
 	<c:forEach items="${list }" var="dto01">
 	<table border="0">
 		<td width="30%" align="center"><a href="content_view.do?lCode=${dto01.lCode}">${dto01.lContent }</a></td>
-		<!--<td width="20%">${dto01.lCreatedate }</td>-->
-		<td width="20%" align="center">${dto01.lFinishdate }</td>
-		<td width="20%" align="center"><input type="checkbox" name="lIsimportant"></td>
-		<td width="20%" align="center"><input type="checkbox" name="lIsdone"></td>
+		<td width="30%" align="center">${dto01.lisdone}</td>
+		<td width="30%" align="center">${dto01.lisimportant}</td>
 		</table>
 	</c:forEach>
 	</div>

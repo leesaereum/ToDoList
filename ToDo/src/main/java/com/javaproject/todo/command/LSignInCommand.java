@@ -11,21 +11,24 @@ public class LSignInCommand implements LCommand {
 	public static final LSignInCommand instance = new LSignInCommand();
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		String uId = request.getParameter("uId");
-		String uPw = request.getParameter("uPw");
-		if(uId!=null) uId= uId.trim();
-		if(uPw!=null) uPw= uPw.trim();
+		// TODO Auto-generated method stub
+		String id = request.getParameter("uId");
+		String pw = request.getParameter("uPw");
 		LDao dao = new LDao();
-		boolean result = dao.signIn(uId, uPw);
-		
-		if(result) {
-			request.setAttribute("viewPage", "list.do?uId="+uId);
+
+		String uId = dao.signIn(id, pw);
+		if(uId != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("uId", uId);
-		}else {
-			request.setAttribute("viewPage", "signInagain.jsp");
+			session.setAttribute("UID", uId);
 		}
-		
+
+		if(uId == null) {
+			request.setAttribute("viewPage", "signIn.jsp?error=error");
+		}else {
+			request.setAttribute("viewPage", "list.do");
+		}
+
+
 	}
 
 }

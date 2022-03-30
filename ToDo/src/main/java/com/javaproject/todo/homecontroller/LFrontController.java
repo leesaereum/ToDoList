@@ -17,6 +17,7 @@ import com.javaproject.todo.command.LDeleteCommand;
 import com.javaproject.todo.command.LListCommand;
 import com.javaproject.todo.command.LModifyCommand;
 import com.javaproject.todo.command.LSignInCommand;
+import com.javaproject.todo.command.LSignUpCommand;
 import com.javaproject.todo.command.LSignoutCommand;
 
 @WebServlet("*.do")
@@ -49,6 +50,17 @@ public class LFrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch(com) {
+		
+		case ("/signUp_view.do"):
+			viewPage ="signUp_view.jsp";
+			break;
+			
+		case("/signUp.do"):
+			command = new LSignUpCommand();
+			command.execute(request, response);
+			viewPage = "signIn.do";
+			break;
+			
 		case("/list.do"):
 			command = new LListCommand();
 			command.execute(request, response);
@@ -59,11 +71,12 @@ public class LFrontController extends HttpServlet {
 			command = new LSignInCommand();
 			command.execute(request, response);
 			viewPage = (String) request.getAttribute("viewPage");
-			HttpSession session = request.getSession();
-			String uId = (String) session.getAttribute("uId");
-			session.setAttribute("uId",uId);
+//			HttpSession session = request.getSession();
+//			String uId = (String) session.getAttribute("uId");
+//			session.setAttribute("uId",uId);
+
 			break;
-			
+
 		case("/signOut.do"):
 			command = new LSignoutCommand();
 			command.execute(request, response);

@@ -1,59 +1,44 @@
 package com.javaproject.todo.dto;
 
-import java.sql.Timestamp;
 
 public class LDto {
 	String uId;
 	int lCode;
 	String lContent;
-	Timestamp lCreatedate;
-	Timestamp lFinishdate;
-	boolean lisdone;
-	boolean lisimportant;
+	String lisdone;
+	String lisimportant;
 	String user_uId;
 	
 	public LDto(){
 		
 	}
 
-	public LDto(String uId, int lCode, String lContent, Timestamp lCreatedate,
-			Timestamp lFinishdate, boolean lisdone, boolean lisimportant) {
-		super();
-		this.uId = uId;
-		this.lCode = lCode;
-		this.lContent = lContent;
-		this.lCreatedate = lCreatedate;
-		this.lFinishdate = lFinishdate;
-		this.lisdone = lisdone;
-		this.lisimportant = lisimportant;
-	}
-
-	public LDto(int lCode, String lContent, boolean lisdone,boolean lisimportant) {
-		super();
-		this.lCode = lCode;
-		this.lContent = lContent;
-		this.lisdone = lisdone;
-		this.lisimportant = lisimportant;
-	}
-
-
-
 	/**
 	 * @param lCode
 	 * @param lContent
-	 * @param lCreatedate
-	 * @param lFinishdate
 	 * @param lisdone
 	 * @param lisimportant
 	 * @param user_uId
 	 */
-	public LDto(int lCode, String lContent, Timestamp lCreatedate, Timestamp lFinishdate, boolean lisdone,
-			boolean lisimportant) {
+	public LDto(int lCode, String lContent, String lisdone, String lisimportant, String user_uId) {
 		super();
 		this.lCode = lCode;
 		this.lContent = lContent;
-		this.lCreatedate = lCreatedate;
-		this.lFinishdate = lFinishdate;
+		this.lisdone = lisdone;
+		this.lisimportant = lisimportant;
+		this.user_uId = user_uId;
+	}
+
+	/**
+	 * @param lCode
+	 * @param lContent
+	 * @param lisdone
+	 * @param lisimportant
+	 */
+	public LDto(int lCode, String lContent, String lisdone, String lisimportant) {
+		super();
+		this.lCode = lCode;
+		this.lContent = lContent;
 		this.lisdone = lisdone;
 		this.lisimportant = lisimportant;
 	}
@@ -101,61 +86,46 @@ public class LDto {
 	}
 
 	/**
-	 * @return the lCreatedate
-	 */
-	public Timestamp getlCreatedate() {
-		return lCreatedate;
-	}
-
-	/**
-	 * @param lCreatedate the lCreatedate to set
-	 */
-	public void setlCreatedate(Timestamp lCreatedate) {
-		this.lCreatedate = lCreatedate;
-	}
-
-	/**
-	 * @return the lFinishdate
-	 */
-	public Timestamp getlFinishdate() {
-		return lFinishdate;
-	}
-
-	/**
-	 * @param lFinishdate the lFinishdate to set
-	 */
-	public void setlFinishdate(Timestamp lFinishdate) {
-		this.lFinishdate = lFinishdate;
-	}
-
-	/**
 	 * @return the lisdone
 	 */
-	public boolean isLisdone() {
+	public String getLisdone() {
 		return lisdone;
 	}
 
 	/**
 	 * @param lisdone the lisdone to set
 	 */
-	public void setLisdone(boolean lisdone) {
+	public void setLisdone(String lisdone) {
 		this.lisdone = lisdone;
 	}
 
 	/**
 	 * @return the lisimportant
 	 */
-	public boolean isLisimportant() {
+	public String getLisimportant() {
 		return lisimportant;
 	}
 
 	/**
 	 * @param lisimportant the lisimportant to set
 	 */
-	public void setLisimportant(boolean lisimportant) {
+	public void setLisimportant(String lisimportant) {
 		this.lisimportant = lisimportant;
 	}
-	
+
+	/**
+	 * @return the user_uId
+	 */
+	public String getUser_uId() {
+		return user_uId;
+	}
+
+	/**
+	 * @param user_uId the user_uId to set
+	 */
+	public void setUser_uId(String user_uId) {
+		this.user_uId = user_uId;
+	}
 	
 	
 }
