@@ -99,7 +99,7 @@ public class LDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant from list where user_uId = ?"";
+			String query = "select lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant from list where user_uId = ?";
 			if(queryContent !=null ) {
 				query += "and " + queryName + " like '%" + queryContent + "%'";
 			   }
