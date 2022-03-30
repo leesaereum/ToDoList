@@ -83,6 +83,7 @@ function checkLogin() {
 		alert("아이디를 입력해 주세요.")
 		form.uId.focus()
 		return false
+		
 	}else if(form.uId.value.length < 5 || form.uId.value.length > 50){
 		alert("아이디는 5~50자 이내로 입력 가능합니다.")
 		form.uId.focus()
