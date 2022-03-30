@@ -23,7 +23,7 @@ public class LListCommand implements LCommand {
 		System.out.println(queryContent);
 		
 		LDao dao = new LDao();
-		ArrayList<LDto> dtos = dao.list();
+		ArrayList<LDto> dtos = dao.list(queryName, queryContent, uId);
 		request.setAttribute("list", dtos);
 	}
 
