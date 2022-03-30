@@ -94,11 +94,11 @@ function checkLogin() {
 		return false
 	}else if(form.uPw1.value == ""){
 		alert("비밀번호를 입력해 주세요.")
-		form.uPw.focus()
+		form.uPw1.focus()
 		return false
 	}else if (form.uPw1.value.length < 4 || form.uPw1.value.length > 12){
 		alert("비밀번호는 4~12자 이내로 입력 가능합니다.")
-		form.uPw.select()
+		form.uPw1.select()
 		return false
 	}else if(form.uPw2.value == ""){
 		alert("비밀번호 확인을 입력해 주세요.")
