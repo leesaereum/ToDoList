@@ -42,7 +42,7 @@ public class LDao01 {
 	public void delete() {
 		
 	}
-	public ArrayList<LDto01> list(String queryName, String queryContent, String uID) {
+	public ArrayList<LDto01> list(String queryName, String queryContent, String uId) {
 		//list
 		
 			ArrayList<LDto01> dtos = new ArrayList<LDto01>();
@@ -52,12 +52,12 @@ public class LDao01 {
 			
 			try {
 				connection = dataSource.getConnection();
-				String query = "select lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant from list where uId=? ";
+				String query = "select lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant from list where user_uId = ?";
 				if(queryContent !=null ) {
 					query += "and " + queryName + " like '%" + queryContent + "%'";
 				}
 				preparedStatement = connection.prepareStatement(query);
-				preparedStatement.setString(1, uID);
+				preparedStatement.setString(1, uId);
 				resultSet = preparedStatement.executeQuery();
 				
 				while(resultSet.next()) {
@@ -66,10 +66,12 @@ public class LDao01 {
 					Timestamp lCreatedate = resultSet.getTimestamp("lCreatedate"); 
 					Timestamp lFinishdate = resultSet.getTimestamp("lFinishdate"); 
 					Boolean lIsdone = resultSet.getBoolean("lIsdone"); 
-					Boolean lIsimportant = resultSet.getBoolean("lIsimportant"); 
+					Boolean lIsimportant = resultSet.getBoolean("lIsimportant");
+					String user_uId = resultSet.getString("user_uId");
 					
 					
-					LDto01 dto01 = new LDto01(lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant, lContent);
+					LDto01 dto01 = new LDto01(lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant, user_uId);
+					System.out.println(dto01);
 					
 					dtos.add(dto01);
 				}
