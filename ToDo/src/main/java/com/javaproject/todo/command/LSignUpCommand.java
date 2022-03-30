@@ -15,6 +15,7 @@ public class LSignUpCommand implements LCommand {
 		String uId = request.getParameter("uId");
 		String uPw = request.getParameter("uPw");
 		String uName = request.getParameter("uName");
+		System.out.println("Test");
 		
 		LDao dao = new LDao();
 		
