@@ -89,7 +89,7 @@ public class LDao {
 		}
 		
 	}
-	public ArrayList<LDto> list() {
+	public ArrayList<LDto> list(String queryName, String queryContent, String uId) {
 		//list
 		
 		ArrayList<LDto> dtos = new ArrayList<LDto>();
@@ -99,8 +99,12 @@ public class LDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant from list";
+			String query = "select lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant from list where user_uId = ?"";
+			if(queryContent !=null ) {
+				query += "and " + queryName + " like '%" + queryContent + "%'";
+			   }
 			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setString(1, uId);
 			resultSet = preparedStatement.executeQuery();
 			
 			while(resultSet.next()) {
@@ -110,9 +114,9 @@ public class LDao {
 				Timestamp lFinishdate = resultSet.getTimestamp("lFinishdate"); 
 				Boolean lIsdone = resultSet.getBoolean("lIsdone"); 
 				Boolean lIsimportant = resultSet.getBoolean("lIsimportant"); 
-				//String user_uId = resultSet.getString("user_uId"); 
+				String user_uId = resultSet.getString("user_uId"); 
 				
-				LDto dto01 = new LDto(lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant);
+				LDto01 dto01 = new LDto01(lCode, lContent, lCreatedate, lFinishdate, lIsdone, lIsimportant, user_uId);
 				
 				dtos.add(dto01);
 			}
