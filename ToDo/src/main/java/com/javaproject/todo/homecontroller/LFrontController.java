@@ -58,7 +58,7 @@ public class LFrontController extends HttpServlet {
 		case("/signUp.do"):
 			command = new LSignUpCommand();
 			command.execute(request, response);
-			viewPage = "signIn.do";
+			viewPage = "signIn.jsp";
 			break;
 			
 		case("/list.do"):

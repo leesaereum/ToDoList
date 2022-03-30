@@ -19,7 +19,7 @@ public class LSignInCommand implements LCommand {
 		String uId = dao.signIn(id, pw);
 		if(uId != null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("UID", uId);
+			session.setAttribute("uId", uId);
 		}
 
 		if(uId == null) {

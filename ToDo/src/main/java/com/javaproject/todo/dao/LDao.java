@@ -135,7 +135,7 @@ public class LDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select lCode, lContent, lisdone, lisimportant from list where user_uId = ?";
+			String query = "select lCode, lContent, lisdone, lisimportant from list where user_uId = ? ORDER BY lIsimportant desc";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, uId);
 			resultSet = preparedStatement.executeQuery();
@@ -173,7 +173,7 @@ public class LDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select lContent, lIsdone, lIsimportant from list where lCode = ?";
+			String query = "select lContent, lIsdone, lIsimportant from list where lCode = ?  ";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, lCode);
 			resultSet = preparedStatement.executeQuery();

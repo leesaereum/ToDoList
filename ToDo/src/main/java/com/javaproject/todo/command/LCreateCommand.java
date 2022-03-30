@@ -19,7 +19,7 @@ public class LCreateCommand implements LCommand {
 		HttpSession session = request.getSession();
 		
 		
-		Object user_uId = session.getAttribute("UID");
+		Object user_uId = session.getAttribute("uId");
 		String content = request.getParameter("content");
 		String isImportant =  request.getParameter("isImportant");
 		String isDone = request.getParameter("isDone");

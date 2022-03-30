@@ -43,10 +43,14 @@
 	function NewtoDo() {
 		location.href = "create.jsp";
 	}
+	function SignOut(){
+		location.href = "signOut.do";
+	}
 </script>
 <body>
 	<h1 align="center">To do List</h1>
 	<input type="button" value="New" onclick="NewtoDo()">
+	<input type="button" value="logout" onclick="SignOut()">
 	<hr class="first">
 	<!--list area -->
 	

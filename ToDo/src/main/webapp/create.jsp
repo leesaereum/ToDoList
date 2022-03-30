@@ -73,7 +73,7 @@ body{
 <div class="signIn_content">
 <h1 class="signIn__title">ToDoList</h1>
 <p class="signIn__description">해야할 일을 입력해주세요!</p>
-	<form action="create_list.do" method="get">
+	<form action="create_list.do" method="post">
 			<div class="signIn_liner">
 		해야할일 <input type="text" name="content" size="30">
 			</div>
@@ -81,7 +81,7 @@ body{
 		진행여부 - <input type="radio" name="isDone" value = "진행중" checked/>진행중
 		 <input type="radio" name="isDone" value = "완료" />완료 <br>
 		 중  요  도  - <input type="radio" name="isImportant" value = "중요" checked/>중요
-		 <input type="radio" name="isImportant" value = "중요하지않음" />중요하지않음
+		 <input type="radio" name="isImportant" value = "" />중요하지않음
 		</div>
 
 	
