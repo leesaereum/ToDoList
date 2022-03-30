@@ -125,7 +125,7 @@ public class LDao {
 		}
 	}//Create
 	
-	public ArrayList<LDto> list(String uId) {
+	public ArrayList<LDto> list(String queryName, String queryContent, String uId) {
 		//list
 		
 		ArrayList<LDto> dtos = new ArrayList<LDto>();
@@ -135,7 +135,10 @@ public class LDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select lCode, lContent, lisdone, lisimportant from list where user_uId = ? ORDER BY lIsimportant desc";
+			String query = "select lCode, lContent, lisdone, lisimportant, user_uId from list where user_uId = ? ";
+			if(queryContent !=null ) {
+				query += "and " + queryName + " like '%" + queryContent + "%'"+" ORDER BY lIsimportant desc";
+			}
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, uId);
 			resultSet = preparedStatement.executeQuery();
@@ -145,10 +148,11 @@ public class LDao {
 				String lContent = resultSet.getString("lContent"); 
 				String lIsdone = resultSet.getString("lisdone"); 
 				String lIsimportant = resultSet.getString("lisimportant"); 
+				String user_uId = resultSet.getString("user_uId");
 				
-				LDto dto01 = new LDto(lCode, lContent, lIsdone, lIsimportant);
-				
-				dtos.add(dto01);
+				LDto dto = new LDto(lCode, lContent, lIsdone, lIsimportant, user_uId);
+						
+				dtos.add(dto);
 			}
 			
 		} catch (Exception e) {

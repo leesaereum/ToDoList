@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>To do List/${dto.uId }</title>
+<title>To do List/<%=session.getAttribute("uId") %></title>
 </head>
 <style>
 	body, table, tr{
@@ -64,11 +64,11 @@
 	
 	<hr class="second">
 	<div class="listcontent" style="overflow-x:hidden;">
-	<c:forEach items="${list }" var="dto01">
+	<c:forEach items="${list }" var="dto">
 	<table border="0">
-		<td width="30%" align="center"><a href="content_view.do?lCode=${dto01.lCode}">${dto01.lContent }</a></td>
-		<td width="30%" align="center">${dto01.lisdone}</td>
-		<td width="30%" align="center">${dto01.lisimportant}</td>
+		<td width="30%" align="center"><a href="content_view.do?lCode=${dto.lCode}">${dto.lContent }</a></td>
+		<td width="30%" align="center">${dto.lisdone}</td>
+		<td width="30%" align="center">${dto.lisimportant}</td>
 		</table>
 	</c:forEach>
 	</div>

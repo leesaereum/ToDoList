@@ -21,7 +21,7 @@ public class LListCommand implements LCommand {
 		String queryContent =request.getParameter("lContent");
 		
 		LDao dao = new LDao();
-		ArrayList<LDto> dtos = dao.list(uId);
+		ArrayList<LDto> dtos = dao.list(queryName, queryContent, uId);
 		request.setAttribute("list", dtos);
 	}
 

@@ -76,6 +76,8 @@ function checkLogin() {
 	var regExpName = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+$/;
 	var email = form.uId.value
 	var name = form.uName.value
+	var pw1 = form.uPw1.value
+	var pw2 = form.uPw2.value
 	
 	if(form.uId.value == ""){
 		alert("아이디를 입력해 주세요.")
@@ -83,27 +85,31 @@ function checkLogin() {
 		return false
 	}else if(form.uId.value.length < 5 || form.uId.value.length > 50){
 		alert("아이디는 5~50자 이내로 입력 가능합니다.")
-		form.id.focus()
+		form.uId.focus()
 		return false
 	}else if(!regExpEmail.test(email)){
-		alert("입력하신 아이디가 이메일 형식이 아닙니다. ")
-		form.id.focus()
+		alert("입력하신 아이디가 이메일 형식이 아닙니다.")
+		form.uId.focus()
 		return false
-	}else if(form.uPw.value ==""){
+	}else if(form.uPw1.value == ""){
 		alert("비밀번호를 입력해 주세요.")
 		form.uPw.focus()
 		return false
-	}else if (form.uPw.value.length < 4 || form.uPw.value.length > 12){
+	}else if (form.uPw1.value.length < 4 || form.uPw1.value.length > 12){
 		alert("비밀번호는 4~12자 이내로 입력 가능합니다.")
 		form.uPw.select()
 		return false
-	}else if(form.uPw2.value ==""){
+	}else if(form.uPw2.value == ""){
 		alert("비밀번호 확인을 입력해 주세요.")
 		form.uPw2.focus()
 		return false
 	}else if (form.uPw2.value.length < 4 || form.uPw2.value.length > 12){
 		alert("비밀번호 확인은 4~12자 이내로 입력 가능합니다.")
 		form.uPw2.select()
+		return false
+	}else if (pw1 != pw2){
+		alert("비밀번호가 일치하지 않습니다.")
+		form.uPw1.select()
 		return false
 	}else if(form.uName.value ==""){
 		alert("이름을 입력해 주세요.")
@@ -137,7 +143,7 @@ function checkLogin() {
 				</div>
 				<div class="signIn__liner">
 					<p class="signIn__subTitle">패스워드</p>
-					<input class="signIn__input" type="password" name="uPw" placeholder="비밀번호는 4~12자 이내로 입력">
+					<input class="signIn__input" type="password" name="uPw1" placeholder="비밀번호는 4~12자 이내로 입력">
 				</div>
 				<div class="signIn__liner">
 					<p class="signIn__subTitle">패스워드 확인</p>
