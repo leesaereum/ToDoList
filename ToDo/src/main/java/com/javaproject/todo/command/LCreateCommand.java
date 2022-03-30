@@ -15,38 +15,28 @@ public class LCreateCommand implements LCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 		
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+//		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		HttpSession session = request.getSession();
-		String isImportant;
+		
 		
 		Object user_uId = session.getAttribute("UID");
-		
 		String content = request.getParameter("content");
+		String isImportant =  request.getParameter("isImportant");
 		
-		Timestamp finishdate = null;
-		try {
-			finishdate = (Timestamp) df.parse(request.getParameter("finishDate"));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		Timestamp finishdate = null;
+//		try {
+//			finishdate = (Timestamp) df.parse(request.getParameter("finishDate"));
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
-		
-		//중요 표시 안했을시 0 값주기
-		if (request.getParameter("isImportant") == "") {
-			isImportant = "0";
-		}else {
-			isImportant = request.getParameter("isImportant");
-		}
-		
-		
-	
-		
+//		LDao dao = new LDao();
 		LDao dao = new LDao();
 		
-		dao.create(user_uId, content, finishdate, isImportant);
+		dao.create(user_uId, content, isImportant);
 	}
 
 }
+

@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <style type="text/css">
 <title>ToDoList작성</title>
-
 html{
 	height: 100%;
 }
