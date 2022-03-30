@@ -50,6 +50,17 @@ public class LFrontController extends HttpServlet {
 		String com = uri.substring(conPath.length());
 		
 		switch(com) {
+		
+		case ("/signUp_view.do"):
+			viewPage ="signUp_view.jsp";
+			break;
+			
+		case("/signUp.do"):
+			command = new LSignUpCommand();
+			command.execute(request, response);
+			viewPage = "signIn.jsp";
+			break;
+			
 		case("/list.do"):
 			command = new LListCommand();
 			command.execute(request, response);
@@ -60,11 +71,12 @@ public class LFrontController extends HttpServlet {
 			command = new LSignInCommand();
 			command.execute(request, response);
 			viewPage = (String) request.getAttribute("viewPage");
-			HttpSession session = request.getSession();
-			String uId = (String) session.getAttribute("uId");
-			session.setAttribute("uId",uId);
+//			HttpSession session = request.getSession();
+//			String uId = (String) session.getAttribute("uId");
+//			session.setAttribute("uId",uId);
+
 			break;
-			
+
 		case("/signOut.do"):
 			command = new LSignoutCommand();
 			command.execute(request, response);
@@ -97,15 +109,6 @@ public class LFrontController extends HttpServlet {
 			command = new LDeleteCommand();
 			command.execute(request, response);
 			viewPage = "delete_sucess.jsp";
-			break;
-			
-		case ("/signUp_view.do"):
-			viewPage ="signUp_view.jsp";
-			break;
-		case("/signUp.do"):
-			command = new LSignUpCommand();
-			command.execute(request, response);
-			viewPage = "signIn.do";
 			break;
 		}
 		
