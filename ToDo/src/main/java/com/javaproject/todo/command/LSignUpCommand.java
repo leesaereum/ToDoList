@@ -11,6 +11,7 @@ public class LSignUpCommand implements LCommand {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
+		System.out.println("OK");
 		
 		String uId = request.getParameter("uId");
 		String uPw = request.getParameter("uPw");
