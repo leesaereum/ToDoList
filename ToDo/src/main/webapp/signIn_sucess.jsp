@@ -12,7 +12,7 @@
 <c:if test="${uId != null }">
 ${uId} 로 로그인되었습니다.
 </c:if>
-<br>
+<br><br>
 <form action="signOut.do" method="post">
 <input type="submit" value="로그아웃">
 </form>
