@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
-    <entry loc="/Users/yang-gwihyeon/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.2.v20220201-1208/jre" stamp="1646141802836"/>
-    <entry loc="/Users/yang-gwihyeon/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.x86_64_17.0.2.v20220201-1208" stamp="1646141802837"/>
+    <entry loc="/Library/Java/JavaVirtualMachines/jdk-17.0.2.jdk/Contents/Home" stamp="1645420531569"/>
 </dirs>
